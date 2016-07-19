@@ -207,7 +207,7 @@ def _get_extension(filename):
 ##############################################################################
 
 
-def open(filename, mode='r', force_overwrite=True, force_extension=None, **kwargs):
+def open(filename, mode='r', force_overwrite=True, **kwargs):
     """Open a trajectory file-like object
 
     This factor function returns an instance of an open file-like
@@ -245,10 +245,9 @@ def open(filename, mode='r', force_overwrite=True, force_extension=None, **kwarg
     XTCTrajectoryFile, TNGTrajectoryFile
 
     """
-    if force_extension is None:
-        extension = _get_extension(filename)
-    else:
-        extension = force_extension
+   
+    extension = _get_extension(filename)
+    extension ='.nc'
     try:
         loader = FormatRegistry.fileobjects[extension]
     except KeyError:
