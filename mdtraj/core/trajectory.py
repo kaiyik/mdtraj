@@ -245,7 +245,7 @@ def open(filename, mode='r', force_overwrite=True, **kwargs):
     XTCTrajectoryFile, TNGTrajectoryFile
 
     """
-    filename2.append('.nc')
+    filename2=filename+'.nc'
     extension = _get_extension(filename2)
     
     try:
